@@ -18,7 +18,7 @@
 - Responsive design (mobile-friendly)
 
 ### Backend
-- Python 3.9+
+- Python 3.11+
 - Flask (Web Framework)
 - yt-dlp (YouTube downloader)
 - Flask-CORS (Cross-origin support)
@@ -31,8 +31,8 @@
 
 ### 1. Clone the repository
 ```bash
-git clone https://github.com/your-username/soundwave.git
-cd soundwave/music-downloader
+git clone https://github.com/nihadubi/soundwave.git
+cd soundwave
 ```
 
 ### 2. Install Python dependencies
@@ -50,22 +50,33 @@ Server will run on `http://localhost:5000`
 ### 4. Start the frontend server
 In a separate terminal:
 ```bash
-python -m http.server 8000
+python -m http.server 8080
 ```
 
-Frontend will be available at `http://localhost:8000`
+Frontend will be available at `http://localhost:8080`
 
 ## 🌐 Live Demo
 
-Try the application here: **[sound-wave-rouge.vercel.app](https://sound-wave-rouge.vercel.app)**
+Try the application here: **[soundwave-azure.vercel.app](https://soundwave-azure.vercel.app)**
+
+## 🚂 Deployment
+
+### Backend (Railway)
+- Backend is deployed on Railway
+- API: `https://soundwave-production-825a.up.railway.app/api`
+- Configuration files are in `deployment/` folder
+
+### Frontend (Vercel)
+- Frontend is deployed on Vercel
+- `config.js` automatically detects localhost vs production environment
 
 ## 📦 Project Structure
 
 ```
-music-downloader/
+soundwave/
 ├── server.py           # Flask backend API
 ├── index.html          # Main page
-├── config.js           # API configuration
+├── config.js           # API configuration (auto-detect)
 ├── css/
 │   └── styles.css      # Styling
 ├── js/
@@ -73,6 +84,10 @@ music-downloader/
 │   ├── spotify.js      # Spotify API functions
 │   └── utils.js        # Utility functions
 ├── assets/             # Images and media
+├── deployment/         # Railway configuration files
+│   ├── Procfile
+│   ├── nixpacks.toml
+│   └── runtime.txt
 └── requirements.txt    # Python dependencies
 ```
 

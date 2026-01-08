@@ -1,63 +1,71 @@
 # 🚀 SoundWave Deployment Guide
 
-Bu layihəni internetdə hamının istifadəsi üçün necə yerləşdirmək olar.
+How to deploy this project for everyone to use online.
 
-Layihə iki hissədən ibarətdir:
-1. **Backend (Python)** - Musiqini yükləyən və emal edən tərəf. (Railway istifadə edəcəyik)
-2. **Frontend (HTML/JS)** - İstifadəçinin gördüyü sayt. (Vercel istifadə edəcəyik)
-
----
-
-## Addım 1: GitHub Repozitoriyası
-
-Kodları GitHub-a yükləyin (əgər etməmisinizsə).
-1. GitHub-da yeni repo yaradın.
-2. Kodları ora push edin.
+The project consists of two parts:
+1. **Backend (Python)** - Handles music downloading and processing. (We will use Railway)
+2. **Frontend (HTML/JS)** - The user interface. (We will use Vercel)
 
 ---
 
-## Addım 2: Backend (Railway)
+## Step 1: GitHub Repository
 
-Python kodunu serverə qoymalıyıq.
-
-1. [Railway.app](https://railway.app) saytına daxil olun və GitHub ilə giriş edin.
-2. **+ New Project** düyməsini basın.
-3. **Deploy from GitHub repo** seçin və repozitoriyanızı seçin.
-4. **Deploy Now** basın.
-5. Railway avtomatik `Procfile` və `requirements.txt` fayllarını görüb quraşdıracaq.
-6. Deploy bitdikdən sonra:
-   - **Settings** bölməsinə keçin.
-   - **Networking** altında **Generate Domain** basın.
-   - Sizə uzun bir link verəcək (məsələn: `soundwave-production.up.railway.app`).
-   - ⚠️ **Bu linki kopyalayın!**
+Upload your code to GitHub (if you haven't already).
+1. Create a new repository on GitHub.
+2. Push your code there.
 
 ---
 
-## Addım 3: Konfiqurasiya
+## Step 2: Backend (Railway)
 
-İndi frontend-ə deməliyik ki, backend haradadır.
+We need to put the Python code on a server.
 
-1. Layihənizdə `config.js` faylını açın.
-2. Railway-dən aldığınız linki ora yazın və şərhi silin:
+1. Go to [Railway.app](https://railway.app) and log in with GitHub.
+2. Click the **+ New Project** button.
+3. Select **Deploy from GitHub repo** and choose your repository.
+4. Click **Deploy Now**.
+5. Railway will automatically detect and install using `Procfile` and `requirements.txt`.
+6. Once deployment is finished:
+   - Go to the **Settings** section.
+   - Under **Networking**, click **Generate Domain**.
+   - It will give you a long link (e.g., `soundwave-production.up.railway.app`).
+   - ⚠️ **Copy this link!**
+
+---
+
+## Step 3: Configuration
+
+Now we need to tell the frontend where the backend is.
+
+1. Open the `config.js` file in your project.
+2. Paste the link you got from Railway and update the line:
 
 ```javascript
-window.API_BASE = 'https://sizin-railway-linkiniz.up.railway.app/api';
+window.API_BASE = 'https://your-railway-link.up.railway.app/api';
 ```
 
-3. Dəyişikliyi yadda saxlayın və GitHub-a yenidən **push** edin.
+3. Save the changes and **push** to GitHub again.
 
 ---
 
-## Addım 4: Frontend (Vercel)
+## Step 4: Frontend (Vercel)
 
-İndi saytın özünü internetə qoyaq.
+Now let's put the website itself online.
 
-1. [Vercel.com](https://vercel.com) saytına daxil olun.
-2. **Add New...** -> **Project** seçin.
-3. GitHub reponuzu seçin və **Import** basın.
-4. **Deploy** düyməsini basın.
-5. 1 dəqiqə sonra saytınız `sizin-layihe.vercel.app` ünvanında aktiv olacaq!
+1. Go to [Vercel.com](https://vercel.com).
+2. Select **Add New...** -> **Project**.
+3. Select your GitHub repo and click **Import**.
+4. Click the **Deploy** button.
+5. In about a minute, your site will be live at `your-project.vercel.app`!
 
 ---
 
-🎉 **Təbriklər!** İndi dostlarınız həmin Vercel linkinə daxil olub musiqi yükləyə bilərlər. Backend Railway üzərində işləyəcək.
+## 🛠️ Post-Deployment Check
+
+1. Visit your Vercel link.
+2. Paste a Spotify track URL.
+3. If everything is configured correctly, the backend on Railway will process the request and your download will start.
+
+---
+
+🎉 **Congratulations!** Now your friends can visit your Vercel link and download music. The backend will be running on Railway.
