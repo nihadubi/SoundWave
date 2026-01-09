@@ -41,29 +41,28 @@
 * FFmpeg (Recommended to have it installed in system PATH)
 
 ### 1. Clone the Repository
-```bash
+bash
 git clone [https://github.com/yourusername/soundwave.git](https://github.com/yourusername/soundwave.git)
 cd soundwave
-```
+
 
 ### 2. Install Python Dependencies
+Create a `requirements.txt` file (or install manually):
 
-Create a requirements.txt file (or install manually):
-```Bash
-
-pip install flask flask-cors yt-dlp ytmusicapi imageio-ffmpeg unidecode requests python-dotenv youtube-search-python
+```bash
+pip install flask flask-cors yt-dlp ytmusicapi imageio-ffmpeg unidecode requests python-dotenv
 ```
-
 ### 3. Run the Server
-```Bash
 
+```bash
 python server.py
 ```
+git
 The backend will start on http://0.0.0.0:5000.
 
 ### 4. Launch the Frontend
+Simply open `index.html` in your browser.
 
-Simply open index.html in your browser.
 ## 🧠 How It Works (The "Smart Search" Logic)
 
 SoundWave doesn't just blindly download the first result. It employs a strict filtering logic in `server.py`:
@@ -86,7 +85,7 @@ soundwave/
 ├── utils.js         # Helper functions (Logging, Progress Bar, Formatter)
 ├── styles.css       # Visual Styling (Glassmorphism)
 └── index.html       # Main Entry Point
-
+```
 ## ⚠️ Disclaimer
 
 This tool is for educational and personal use only. Please respect copyright laws and the Terms of Service of Spotify and YouTube. Do not use this tool for piracy or distributing copyrighted content.
