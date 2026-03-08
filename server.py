@@ -362,7 +362,11 @@ def youtube_music_search(artist, title):
 def get_file_duration(filepath):
     """Get duration of a media file using ffprobe (via yt-dlp)."""
     try:
-        ydl_opts = {'quiet': True, 'no_warnings': True}
+        ydl_opts = {
+            'quiet': True,
+            'no_warnings': True,
+            'extractor_args': {'youtube': {'player_client': ['ios']}},
+        }
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
             info = ydl.extract_info(filepath, download=False)
             return info.get('duration')
@@ -550,9 +554,10 @@ def get_spotify_info(url, log_error=False):
     # Method 2: Fallback to yt-dlp (Dump JSON)
     try:
         ydl_opts = {
-            'quiet': True, 
-            'no_warnings': True, 
+            'quiet': True,
+            'no_warnings': True,
             'extract_flat': True,
+            'extractor_args': {'youtube': {'player_client': ['ios']}},
         }
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
             info = ydl.extract_info(url, download=False)
@@ -645,6 +650,7 @@ def stream_audio():
             'format': 'bestaudio/best',
             'quiet': True,
             'no_warnings': True,
+            'extractor_args': {'youtube': {'player_client': ['ios']}},
         }
         
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
@@ -758,6 +764,7 @@ def download_spotify(url, passed_title=None, passed_artist=None, passed_duration
         'noplaylist': True,
         'quiet': True,
         'ffmpeg_location': FFMPEG_PATH,
+        'extractor_args': {'youtube': {'player_client': ['ios']}},
         'postprocessors': [{
             'key': 'FFmpegExtractAudio',
             'preferredcodec': 'mp3',
